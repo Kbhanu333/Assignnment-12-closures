@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Assignment12-Closures</h1>
+
+    <h4>1. Print Output</h4>
+<pre>
+    function counter(){
+        var counter = 0;
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+        return IncreaseCounter;
+    } 
+    var counter = Counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());
+</pre>
+<h4>Output : Counter is not defined</h4>
+
+
+
+    <h4>2. Print Output</h4>
+<pre>
+    let count = 0;
+    (function () {
+       if (count === 0) {
+           let count = 1;
+           console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+    })(); 
+</pre>
+    <h3>Output: 1, 2</h2>
+
+
+    <h3>3. Print Output</h3>
+ <pre>
+    for (var i = 0; i < 3; i++) {
+        setTimeout(function log() {
+          console.log(i); // What is logged?
+        }, 1000);
+    }
+</pre>
+    <h4>Output : 3 ,3,3</h4>
+
+
+    <h3>4. Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth?</h3>
+     
+<pre>
+    ( function outerFunc ( length ) {
+        ( function innerFunc ( breadth ) {
+          let area = length * breadth;
+          console.log( "Area of Rectangle => " + area );
+        }) ( 4 );
+    }) ( 15 );
+</pre>
+</h2>
+
+
+    <h3>5. Take a variable in outer function and create an inner function to increase the counter every time it is called?</h3>
+    
+<pre>
+    function outer ( ) {
+        var counter = 0;
+        function inner ( ) {
+            return counter += 1;
+        };
+        return inner;
+    }
+    var counter = outer( );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+    console.log ( counter ( ) );
+</pre>
+
+    
+    <h3>6. Print Output</h3>
+<pre>
+    var a = 12;
+    ( function ( ) {
+       alert ( a );
+    }) ( );"
+</pre>
+    <h4>Output : 12 </h4>
+
+
+    <h3>7. Print Output</h3>
+<pre>
+    var a = 10;
+    var x = ( function ( ) {
+        var a = 12;
+        return function ( ) {
+          alert ( a );
+        };
+    }) ( );
+    x ( );
+</pre>
+    <h4>Output : 12 </h4>
+ 
+    <h3>8. Write a program for Marks Calculator which calculate total marks and average marks?</h3>
+<pre>
+    var globalVar = "xyz";
+    ( function outerFunc ( outerArg ) {
+        var outerVar = 'a';
+        ( function innerFunc ( innerArg ) {
+        var innerVar = 'b';
+        console.log (
+            "outerArg = " + outerArg + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "outerVar = " + outerVar + "\n" +
+            "innerVar = " + innerVar + "\n" +
+            "globalVar = " + globalVar );
+        
+        }) ( 456 );
+    }) ( 123 );
+</pre>
+<pre> <h4>Output : outerArg = 123
+                innerArg = 456
+                outerVar = a
+                innerVar = b
+                globalVar = xyz
+        </pre>
+    </h2>
+
+
+
+
+
+
+    
+<script src="./index.js"></script>
+</body>
+</html>
